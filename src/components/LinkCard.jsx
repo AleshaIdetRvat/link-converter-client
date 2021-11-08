@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import { useHistory } from "react-router"
-import { baseUrl } from "../api"
+import { mainURL } from "../api"
 import { AuthContext } from "../context/AuthContext"
 import { useHttp } from "../hooks/http.hook"
 import { useNotification } from "../hooks/notification.hook"
@@ -15,9 +15,10 @@ const LinkCard = ({ link }) => {
 
     const onDelete = async (linkId) => {
         try {
-            await request(`${baseUrl}/api/link/${linkId}`, "DELETE", null, {
+            await request(`${mainURL}/api/link/${linkId}`, "DELETE", null, {
                 Authorization: "Bearer " + token,
             })
+            console.log("BASE URL: ", mainURL)
             showNotif("Link deleted")
             history.push("/links")
         } catch (error) {

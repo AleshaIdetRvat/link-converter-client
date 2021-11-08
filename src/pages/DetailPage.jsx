@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext, useCallback } from "react"
 import { useParams } from "react-router-dom"
-import { baseUrl } from "../api"
+import { mainURL } from "../api"
 import Loader from "../components/common/Loader"
 import LinkCard from "../components/LinkCard"
 import { AuthContext } from "../context/AuthContext"
@@ -15,7 +15,7 @@ const DetailPage = (props) => {
     const getLink = useCallback(async () => {
         try {
             const fetchedLink = await request(
-                `${baseUrl}/api/link/${linkId}`,
+                `${mainURL}/api/link/${linkId}`,
                 "GET",
                 null,
                 {
