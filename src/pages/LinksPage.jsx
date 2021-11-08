@@ -1,4 +1,5 @@
 import React, { useContext } from "react"
+import { baseUrl } from "../api"
 import Loader from "../components/common/Loader"
 import LinksList from "../components/LinksList"
 import { AuthContext } from "../context/AuthContext"
@@ -12,9 +13,14 @@ const LinksPage = () => {
 
     const getLinks = React.useCallback(async () => {
         try {
-            const fetchedLinks = await request("/api/link", "GET", null, {
-                Authorization: "Bearer " + token,
-            })
+            const fetchedLinks = await request(
+                `${baseUrl}/api/link`,
+                "GET",
+                null,
+                {
+                    Authorization: "Bearer " + token,
+                }
+            )
             setLinks(fetchedLinks)
         } catch (error) {}
     }, [token, request])

@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useContext } from "react"
+import { baseUrl } from "../api"
+import Loader from "../components/common/Loader"
 import { AuthContext } from "../context/AuthContext"
 import { useHttp } from "../hooks/http.hook"
 import { useNotification } from "../hooks/notification.hook"
@@ -24,7 +26,7 @@ const AuthPage = () => {
 
     const registerHandler = async () => {
         try {
-            const data = await request("/api/auth/register", "POST", {
+            const data = await request(`${baseUrl}/api/auth/register`, "POST", {
                 ...form,
             })
             showNotif(data.message)
@@ -32,9 +34,15 @@ const AuthPage = () => {
     }
     const loginHandler = async () => {
         try {
-            const data = await request("/api/auth/login", "POST", { ...form })
+            const data = await request(`${baseUrl}/api/auth/login`, "POST", {
+                ...form,
+            })
             auth.login(data.token, data.userId)
         } catch (error) {}
+    }
+
+    if (loading) {
+        return <Loader />
     }
 
     return (

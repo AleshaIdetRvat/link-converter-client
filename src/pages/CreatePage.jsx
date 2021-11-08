@@ -3,6 +3,7 @@ import { AuthContext } from "../context/AuthContext"
 import { useHttp } from "../hooks/http.hook"
 import { useNotification } from "../hooks/notification.hook"
 import { useHistory } from "react-router-dom"
+import { baseUrl } from "../api"
 
 const CreatePage = () => {
     const history = useHistory()
@@ -22,7 +23,7 @@ const CreatePage = () => {
         if (e.key === "Enter" && link) {
             try {
                 const data = await request(
-                    "/api/link/generate",
+                    `${baseUrl}/api/link/generate`,
                     "POST",
                     { from: link, name, color: randomRgbColor() },
                     { Authorization: "Bearer " + authContext.token }
