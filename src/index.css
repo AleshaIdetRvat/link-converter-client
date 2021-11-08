@@ -1,0 +1,42 @@
+@import "~materialize-css/dist/css/materialize.min.css";
+html {
+    font-family: unset;
+}
+body {
+    background-color: #424242;
+    color: whitesmoke;
+    min-height: 100vh;
+}
+
+#root {
+    min-height: 100vh;
+}
+.nav-wrapper {
+    padding: 0 20px;
+}
+#nav-mobile {
+    display: block !important;
+}
+
+.loader {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2rem;
+}
+.app-header__btn {
+    margin-left: 10px;
+    transition: 0.15s;
+    border: none;
+    border-radius: 8px;
+    padding: 3px 10px 5px;
+}
+.app-header__btn:hover {
+    transform: scale(0.9);
+}
+
+.container {
+    background-color: #424242;
+    height: 100%;
+}
