@@ -1,6 +1,8 @@
 # ShortLinkConverter
 
-Full stack app using Node.js, Express, React and MongoDB along with ES6+.
+***Full stack app using Node.js, Express, React and MongoDB along with ES6+.***
+
+But unfortunately, short links will not open on free Netlify hosting
 
 ## Available Scripts
 
