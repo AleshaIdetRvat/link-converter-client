@@ -1,4 +1,4 @@
-import { BrowserRouter, HashRouter } from "react-router-dom"
+import { BrowserRouter } from "react-router-dom"
 import { AuthContext } from "./context/AuthContext"
 import { useAuth } from "./hooks/auth.hook"
 import { useRoutes } from "./routes"
@@ -19,10 +19,10 @@ const App = () => {
         <AuthContext.Provider
             value={{ token, login, logout, userId, isAuth, ready }}
         >
-            <HashRouter>
-                {isAuth ? <Header logout={logout} /> : ""}
+            <BrowserRouter>
+                {isAuth && <Header logout={logout} />}
                 <div className='container'>{routes}</div>
-            </HashRouter>
+            </BrowserRouter>
         </AuthContext.Provider>
     )
 }
